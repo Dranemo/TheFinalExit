@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private Animator animator;
-    private bool isOpen = false;
+    [SerializeField] Animator animator;
+    [SerializeField] Outline outline;
 
-    void Start()
+    private bool isOpen = false;
+    private bool isOutlined = false;
+
+    public void SetIsOutlined(bool isOutlined)
     {
-        animator = GetComponent<Animator>();
+        this.isOutlined = isOutlined;
+        outline.OutlineWidth = (isOutlined ? 6 : 0);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Par exemple, la touche E pour ouvrir/fermer le tiroir
-        {
-            animator.SetBool("IsOpen", isOpen);
-            animator.SetTrigger("Interacts");
+        if (isOutlined && Input.GetKeyDown(KeyCode.E))
+           Interact();
+    }
 
-            isOpen = !isOpen;
-        }
+    private void Start()
+    {
+        outline.OutlineWidth = 0;
+    }
+
+
+
+
+    public void Interact()
+    {
+        animator.SetBool("IsOpen", isOpen);
+        animator.SetTrigger("Interacts");
+
+        isOpen = !isOpen;
     }
 }
