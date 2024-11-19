@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] List<Animator> animators;
+    [SerializeField] List<GameObject> itemSpawningPoints;
+    [SerializeField] List<GameObject> prefabItemsToSpawn;
+
     [SerializeField] Outline outline;
 
     private bool isOpen = false;
@@ -32,9 +35,13 @@ public class Door : MonoBehaviour
 
     public void Interact()
     {
-        animator.SetBool("IsOpen", isOpen);
-        animator.SetTrigger("Interacts");
-
         isOpen = !isOpen;
+
+        foreach (var animator in animators)
+        {
+            animator.SetBool("IsOpen", isOpen);
+            animator.SetTrigger("Interacts");
+        }
+
     }
 }

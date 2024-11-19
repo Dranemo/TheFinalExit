@@ -1,0 +1,3 @@
+Building Kit -> 2.5
+Prototype Build -> 2.5
+Furniture Kit -> 0.5
