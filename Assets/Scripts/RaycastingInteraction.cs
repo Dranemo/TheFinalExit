@@ -9,37 +9,36 @@ public class RaycastingInteraction : MonoBehaviour
     [SerializeField] LayerMask layerMask; // Masque de collision
     private Door lastHitDoor;
 
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 rayDirection = transform.forward.normalized;
-        Vector3 rayEnd = transform.position + rayDirection * rayLength;
+        Vector3 rayDirection = transform.forward;
 
         RaycastHit hit;
+
         if (Physics.Raycast(transform.position, rayDirection, out hit, rayLength, layerMask))
         {
-            if (hit.collider != null)
+            Door door = hit.collider.GetComponent<Door>();
+
+            if (door != null)
             {
-                Door door = hit.collider.GetComponent<Door>();
-
-                if (door != null)
+                if (lastHitDoor != null && lastHitDoor != door)
                 {
-                    if (lastHitDoor != null && lastHitDoor != door)
-                    {
-                        lastHitDoor.SetIsOutlined(false);
-                    }
-
-                    door.SetIsOutlined(true);
-                    lastHitDoor = door;
+                    Debug.Log("ni là");
+                    lastHitDoor.SetIsOutlined(false);
                 }
 
-                else
-                {
+                Debug.Log("Door hit");
+                door.SetIsOutlined(true);
+                lastHitDoor = door;
+            }
+            else
+            {
 
-                    if (lastHitDoor != null)
-                    {
-                        lastHitDoor.SetIsOutlined(false);
-                        lastHitDoor = null;
-                    }
+                Debug.Log("devrait pas apsser là");
+                if (lastHitDoor != null)
+                {
+                    lastHitDoor.SetIsOutlined(false);
+                    lastHitDoor = null;
                 }
             }
         }
@@ -47,6 +46,8 @@ public class RaycastingInteraction : MonoBehaviour
         {
             if (lastHitDoor != null)
             {
+                Debug.Log("No hit");
+
                 lastHitDoor.SetIsOutlined(false);
                 lastHitDoor = null;
             }

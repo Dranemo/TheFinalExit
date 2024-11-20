@@ -1,40 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
+    [SerializeField] CharacterController characterController;
+
+    [SerializeField] InputActionReference movement;
 
 
-    Vector3 movementX;
-    Vector3 movementZ;
-
-
+    Vector2 movementInput = Vector2.zero;
     [SerializeField] float speed = 10f;
-    [SerializeField] float horizontalInput = 0f;
-    [SerializeField] float verticalInput = 0f;
 
 
-    void Start()
+    private void Awake()
     {
+        characterController = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void OnEnable()
     {
-        // Mouvement horizontal
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
-
-        movementZ = transform.TransformDirection(Vector3.forward) * verticalInput * speed;
-        movementX = transform.TransformDirection(Vector3.right) * horizontalInput * speed;
+        movement.action.Enable();
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        GetComponent<Rigidbody>().AddForce(movementX);
-        GetComponent<Rigidbody>().AddForce(movementZ);
+        movement.action.Disable();
+    }
+
+
+
+
+
+    void Update()
+    {
+        movementInput = movement.action.ReadValue<Vector2>();
+        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+
+        move = transform.TransformDirection(move);
+
+        characterController.SimpleMove(move * speed);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Door : MonoBehaviour
 {
@@ -9,32 +10,61 @@ public class Door : MonoBehaviour
     [SerializeField] List<GameObject> prefabItemsToSpawn;
 
     [SerializeField] Outline outline;
+    [SerializeField] GameObject buttonDisplay;
+
+
+    [SerializeField] InputActionReference interact;
 
     private bool isOpen = false;
     private bool isOutlined = false;
 
-    public void SetIsOutlined(bool isOutlined)
+    public void SetIsOutlined(bool _isOutlined)
     {
-        this.isOutlined = isOutlined;
-        outline.OutlineWidth = (isOutlined ? 6 : 0);
+        if(_isOutlined == isOutlined)
+        {
+            return;
+        }
+
+
+        isOutlined = _isOutlined;
+        outline.OutlineWidth = (_isOutlined ? 6 : 0);
+        buttonDisplay.SetActive(_isOutlined);
     }
 
-    private void Update()
+
+    private void OnEnable()
     {
-        if (isOutlined && Input.GetKeyDown(KeyCode.E))
-           Interact();
+        interact.action.Enable();
+        interact.action.performed += Interact;
     }
+
+    private void OnDisable()
+    {
+        interact.action.Disable();
+        interact.action.performed -= Interact;
+    }
+
+
+
 
     private void Start()
     {
         outline.OutlineWidth = 0;
+        buttonDisplay.SetActive(false);
     }
 
 
 
 
-    public void Interact()
+    public void Interact(InputAction.CallbackContext context)
     {
+        if(!isOutlined)
+        {
+            return;
+        }
+
+
+        Debug.Log("Interacting with door"); 
         isOpen = !isOpen;
 
         foreach (var animator in animators)
