@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Door : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
-    [SerializeField] List<Animator> animators;
-    [SerializeField] List<GameObject> itemSpawningPoints;
-    [SerializeField] List<GameObject> prefabItemsToSpawn;
-
     [SerializeField] Outline outline;
     [SerializeField] GameObject buttonDisplay;
 
-
     [SerializeField] InputActionReference interact;
 
-    private bool isOpen = false;
-    private bool isOutlined = false;
+    protected bool isOutlined = false;
 
     public void SetIsOutlined(bool _isOutlined)
     {
-        if(_isOutlined == isOutlined)
+        if (_isOutlined == isOutlined)
         {
             return;
         }
@@ -56,22 +50,8 @@ public class Door : MonoBehaviour
 
 
 
-    public void Interact(InputAction.CallbackContext context)
+    public virtual void Interact(InputAction.CallbackContext context)
     {
-        if(!isOutlined)
-        {
-            return;
-        }
-
-
-        Debug.Log("Interacting with door"); 
-        isOpen = !isOpen;
-
-        foreach (var animator in animators)
-        {
-            animator.SetBool("IsOpen", isOpen);
-            animator.SetTrigger("Interacts");
-        }
-
+        Debug.Log("Oh, tu as assigné le script Interactable au lieu de la précision de l'objet, t'abuses");
     }
 }
