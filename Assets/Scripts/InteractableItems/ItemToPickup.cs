@@ -5,8 +5,16 @@ using UnityEngine.InputSystem;
 
 public class ItemToPickup : Interactable
 {
+    Inventory inv;
+
+    private void Start()
+    {
+        inv = FindObjectOfType<Inventory>();
+    }
+
+
     public override void Interact(InputAction.CallbackContext context)
     {
-        Debug.Log("Picking up item");
+        inv.AddItem(gameObject);
     }
 }

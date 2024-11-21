@@ -22,6 +22,8 @@ public class Interactable : MonoBehaviour
 
         isOutlined = _isOutlined;
         outline.OutlineWidth = (_isOutlined ? 6 : 0);
+
+        if(buttonDisplay != null)
         buttonDisplay.SetActive(_isOutlined);
     }
 
@@ -44,6 +46,8 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         outline.OutlineWidth = 0;
+
+        if(buttonDisplay != null)
         buttonDisplay.SetActive(false);
     }
 
