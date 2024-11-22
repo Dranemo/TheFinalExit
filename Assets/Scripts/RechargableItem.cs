@@ -43,10 +43,7 @@ public class RechargableItem : ItemUsable
     }
 
 
-    protected virtual void StateItem(bool _bool)
-    {
-
-    }
+    protected virtual void StateItem(bool _bool) { }
 
     public void RechargeItem(float _charge)
     {

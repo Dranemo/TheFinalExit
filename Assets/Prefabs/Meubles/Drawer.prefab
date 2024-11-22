@@ -32,6 +32,37 @@ Transform:
   - {fileID: 7169158738667533473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2561800953004018550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361024591576132097}
+  m_Layer: 0
+  m_Name: ItemSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &361024591576132097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561800953004018550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.2, z: -0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7169158738667533473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5605982172563953903
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,6 +79,7 @@ GameObject:
   - component: {fileID: 5474920805184080749}
   - component: {fileID: 8784962124958336602}
   - component: {fileID: 4582448025292926391}
+  - component: {fileID: 7426333910654498238}
   m_Layer: 3
   m_Name: drawer
   m_TagString: Untagged
@@ -69,6 +101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6203117041689126407}
+  - {fileID: 361024591576132097}
   m_Father: {fileID: 7492559661051207484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5409380981227142420
@@ -177,14 +210,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5255d5a559595504b95dbde2843a5574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animators:
-  - {fileID: 6544386612653944646}
-  itemSpawningPoints: []
-  prefabItemsToSpawn: []
   outline: {fileID: 4582448025292926391}
-  buttonDisplay: {fileID: 6354710585718429013}
+  buttonDisplay:
+  - {fileID: 6354710585718429013}
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  animators:
+  - {fileID: 6544386612653944646}
 --- !u!114 &8784962124958336602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b189897834c574ca4c87f7b7137ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 6354710585718429013}
+  sprite:
+  - {fileID: 6354710585718429013}
 --- !u!114 &4582448025292926391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +249,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7426333910654498238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605982172563953903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded81f234b5e8e140a999b391785429e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 2561800953004018550}
 --- !u!1 &6354710585718429013
 GameObject:
   m_ObjectHideFlags: 0

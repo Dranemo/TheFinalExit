@@ -8,12 +8,15 @@ public class CanvaPlayerUI : MonoBehaviour
     [SerializeField] GameObject invSquarePrefab;
 
     [SerializeField] HorizontalLayoutGroup invPanel;
+
     List<GameObject> squares = new List<GameObject>();
 
-    [SerializeField] Dictionary<Inventory.ItemType, Sprite> sprites;
 
 
-    [SerializeField] GameObject Player;
+
+
+
+
 
     Inventory inventory;
     PlayerStats playerStats;
@@ -21,7 +24,7 @@ public class CanvaPlayerUI : MonoBehaviour
 
     private void Start()
     {
-        inventory = Player.GetComponent<Inventory>();
+        inventory = Inventory.Instance();
         playerStats = PlayerStats.Instance();
     }
 
@@ -29,21 +32,33 @@ public class CanvaPlayerUI : MonoBehaviour
 
     public void UpdateSquares()
     {
-        foreach (GameObject square in squares)
+        foreach (var square in squares)
         {
             Destroy(square);
         }
         squares.Clear();
 
-        foreach (ItemUsable item in inventory.GetInventory())
+        for (int i = 0; i < inventory.GetInventory().Count; i++)
         {
             GameObject square = Instantiate(invSquarePrefab, invPanel.transform);
-            square.transform.SetParent(invPanel.transform, false);
+            
 
-            square.GetComponent<Image>().sprite = sprites[item.itemType];
             squares.Add(square);
         }
     }
-
+    public void UpdateSelectedItem(int index)
+    {
+        for (int i = 0; i < squares.Count; i++)
+        {
+            if (i == index)
+            {
+                squares[i].GetComponent<SquareInvUI>().SetSelected(true);
+            }
+            else
+            {
+                squares[i].GetComponent<SquareInvUI>().SetSelected(false);
+            }
+        }
+    }
 
 }

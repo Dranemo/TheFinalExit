@@ -7,19 +7,16 @@ public class Torch : RechargableItem
 {
     [SerializeField] GameObject lightObject;
 
-    private void Start()
-    {
-        itemType = Inventory.ItemType.Torch;
-    }
-
     protected override void StateItem(bool _bool)
     {
         lightObject.SetActive(_bool);
     }
 
+    new private void OnDisable()
+    {
+        base.OnDisable();
 
-
-
-
-
+        lightObject.SetActive(false);
+        isOn = false;
+    }
 }

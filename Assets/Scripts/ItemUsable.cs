@@ -7,7 +7,6 @@ public class ItemUsable : MonoBehaviour
 {
 
     [SerializeField] InputActionReference use;
-    public Inventory.ItemType itemType;
 
 
 
@@ -18,9 +17,9 @@ public class ItemUsable : MonoBehaviour
         use.action.performed += Use;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
-        use.action.Disable();
+/*      use.action.Disable();*/
         use.action.performed -= Use;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] Outline outline;
-    [SerializeField] GameObject buttonDisplay;
+    [SerializeField] List<GameObject> buttonDisplay;
 
     [SerializeField] InputActionReference interact;
 
@@ -21,10 +21,15 @@ public class Interactable : MonoBehaviour
 
 
         isOutlined = _isOutlined;
-        outline.OutlineWidth = (_isOutlined ? 6 : 0);
+        outline.enabled = _isOutlined;
 
-        if(buttonDisplay != null)
-        buttonDisplay.SetActive(_isOutlined);
+        if (buttonDisplay != null)
+        {
+            foreach (var button in buttonDisplay)
+            {
+                button.SetActive(_isOutlined);
+            }
+        }
     }
 
 
@@ -32,24 +37,36 @@ public class Interactable : MonoBehaviour
     {
         interact.action.Enable();
         interact.action.performed += Interact;
+
+
+        outline.enabled = false;
+
+        if (buttonDisplay != null)
+        {
+            foreach (var button in buttonDisplay)
+            {
+                button.SetActive(false);
+            }
+        }
     }
 
     private void OnDisable()
     {
-        interact.action.Disable();
         interact.action.performed -= Interact;
+
+
+        outline.enabled = false;
+
+        if (buttonDisplay != null)
+        {
+            foreach (var button in buttonDisplay)
+            {
+                button.SetActive(false);
+            }
+        }
     }
 
 
-
-
-    private void Start()
-    {
-        outline.OutlineWidth = 0;
-
-        if(buttonDisplay != null)
-        buttonDisplay.SetActive(false);
-    }
 
 
 

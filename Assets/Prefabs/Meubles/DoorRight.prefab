@@ -258,7 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2587156778861406634}
-  buttonDisplay: {fileID: 2123203695349607543}
+  buttonDisplay:
+  - {fileID: 2123203695349607543}
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
   animators:
@@ -297,4 +298,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b189897834c574ca4c87f7b7137ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 2123203695349607543}
+  sprite:
+  - {fileID: 2123203695349607543}

@@ -71,6 +71,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ChangeItemInHand"",
+                    ""type"": ""Value"",
+                    ""id"": ""c38c74fc-2519-44f0-884b-086001198cc7"",
+                    ""expectedControlType"": ""Integer"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,39 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""40e39071-199d-4b68-9cea-9793e10aa181"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeItemInHand"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""d1294c2d-2fe5-4f13-b635-7f67de3ab896"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeItemInHand"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a79d1463-6d36-432f-88a1-f0d48e281362"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeItemInHand"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -185,6 +227,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
+        m_Player_ChangeItemInHand = m_Player.FindAction("ChangeItemInHand", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +294,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_Camera;
+    private readonly InputAction m_Player_ChangeItemInHand;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -260,6 +304,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
+        public InputAction @ChangeItemInHand => m_Wrapper.m_Player_ChangeItemInHand;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +329,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
+            @ChangeItemInHand.started += instance.OnChangeItemInHand;
+            @ChangeItemInHand.performed += instance.OnChangeItemInHand;
+            @ChangeItemInHand.canceled += instance.OnChangeItemInHand;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +351,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
+            @ChangeItemInHand.started -= instance.OnChangeItemInHand;
+            @ChangeItemInHand.performed -= instance.OnChangeItemInHand;
+            @ChangeItemInHand.canceled -= instance.OnChangeItemInHand;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +378,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnChangeItemInHand(InputAction.CallbackContext context);
     }
 }

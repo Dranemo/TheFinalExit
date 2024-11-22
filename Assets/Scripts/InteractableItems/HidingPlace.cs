@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ItemToPickup : Interactable
+public class HidingPlace : Interactable
 {
-    Inventory inv;
-    public ItemSpawner.ItemType itemType;
+    [SerializeField] GameObject virtualCam;
+
+
 
     private void Start()
     {
-        inv = Inventory.Instance();
+        virtualCam.SetActive(false);
+
     }
 
 
     public override void Interact(InputAction.CallbackContext context)
     {
         if(isOutlined)
-            inv.AddItem(transform.parent.gameObject);
+        {
+            virtualCam.SetActive(!virtualCam.activeSelf);
+            Debug.Log("Interacting with hiding place");
+        }
     }
 }

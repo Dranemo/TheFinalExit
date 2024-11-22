@@ -5,7 +5,7 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     private Camera camera;
-    [SerializeField] GameObject sprite;
+    [SerializeField] List<GameObject> sprite;
 
 
 
@@ -20,6 +20,7 @@ public class Billboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sprite.transform.rotation = camera.transform.rotation;
+        foreach (var _sprite in sprite)
+            _sprite.transform.rotation = camera.transform.rotation;
     }
 }
