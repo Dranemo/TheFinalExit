@@ -7,8 +7,12 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] CharacterController characterController;
+    [SerializeField] GameObject crouchCam;
 
     [SerializeField] InputActionReference movement;
+    [SerializeField] InputActionReference crouch;
+
+    bool crouching = false;
 
 
     Vector2 movementInput = Vector2.zero;
@@ -24,11 +28,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         movement.action.Enable();
+        crouch.action.Enable();
+        crouch.action.performed += Crouch;
     }
 
     private void OnDisable()
     {
         movement.action.Disable();
+        crouch.action.Enable();
+        crouch.action.performed += Crouch;
     }
 
 
@@ -43,5 +51,11 @@ public class PlayerMovement : MonoBehaviour
         move = transform.TransformDirection(move);
 
         characterController.SimpleMove(move * speed);
+    }
+
+    void Crouch(InputAction.CallbackContext context)
+    {
+        crouching = !crouching;
+        crouchCam.SetActive(crouching);
     }
 }

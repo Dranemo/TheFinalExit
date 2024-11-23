@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 
 public class CameraPlayer : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> cameras;
+
+
     [SerializeField] private float mouseSensitivity = 500f;
     [SerializeField] InputActionReference look;
-
-    [SerializeField] private Transform playerBody;
 
     private float xRotationCamera = 0f;
 
@@ -49,8 +50,9 @@ public class CameraPlayer : MonoBehaviour
         xRotationCamera -= rotation.y;
         xRotationCamera = Mathf.Clamp(xRotationCamera, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotationCamera, 0f, 0f);
-        playerBody.Rotate(Vector3.up * rotation.x);
-    }
+        foreach (var cam in cameras) 
+            cam.transform.localRotation = Quaternion.Euler(xRotationCamera, 0f, 0f);
 
+        transform.Rotate(Vector3.up * rotation.x);
+    }
 }

@@ -386,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 5958438921693756439, guid: e0743fbd60d51fa4b9d852bb6697603e,
         type: 3}
       propertyPath: m_Intensity
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7125027120329196913, guid: e0743fbd60d51fa4b9d852bb6697603e,
         type: 3}
@@ -516,7 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf75d6200f04cd943bf8ea0054c22336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 1753785581587576997}
+  outlines:
+  - {fileID: 1753785581587576997}
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}

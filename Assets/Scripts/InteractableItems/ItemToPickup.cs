@@ -19,4 +19,9 @@ public class ItemToPickup : Interactable
         if(isOutlined)
             inv.AddItem(transform.parent.gameObject);
     }
+
+    public ItemSpawner.ItemType GetItemType()
+    {
+        return itemType;
+    }
 }

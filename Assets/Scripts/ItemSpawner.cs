@@ -12,6 +12,9 @@ public class ItemSpawner : MonoBehaviour
     public enum ItemType
     {
         Torch,
+        CoinPile,
+        CoinPile2,
+        CoinPile3,
     };
 
 
@@ -31,12 +34,22 @@ public class ItemSpawner : MonoBehaviour
         GameObject spawnedItem = Instantiate(itemsPrefabsDict[itemType.ToString()], SpawningPosition, rotation);
         spawnedItem.transform.parent = parent.transform;
 
+
+
+
         ItemUsable itemUsable = spawnedItem.GetComponent<ItemUsable>();
         if(itemUsable != null)
         {
             itemUsable.enabled = false;
         }
-        spawnedItem.GetComponent<Rigidbody>().isKinematic = true;
+        Rigidbody rb = spawnedItem.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
+
+
+
 
         return spawnedItem;
     }

@@ -73,13 +73,67 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ChangeItemInHand"",
+                    ""name"": ""ChangeItemInHandScroll"",
                     ""type"": ""Value"",
                     ""id"": ""c38c74fc-2519-44f0-884b-086001198cc7"",
                     ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a9d9307-f751-4227-8524-625d21e7e406"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""2884d196-0515-4935-accb-760df68ddbc9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3dfafb5e-f47e-4d81-97a7-a452b28d66c7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlot3"",
+                    ""type"": ""Button"",
+                    ""id"": ""e31fe6ee-c759-421f-9e43-bee49599f392"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlot4"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf8821b7-4e2f-4a0d-9d98-ebdac5dce729"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventorySlot5"",
+                    ""type"": ""Button"",
+                    ""id"": ""9b18e408-7bd4-4370-b1e3-04f3b96321b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -189,7 +243,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeItemInHand"",
+                    ""action"": ""ChangeItemInHandScroll"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -200,7 +254,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeItemInHand"",
+                    ""action"": ""ChangeItemInHandScroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -211,9 +265,75 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeItemInHand"",
+                    ""action"": ""ChangeItemInHandScroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53e6a49e-113e-445d-8fb7-3b05c3631301"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e03d7762-2928-4fda-8cd7-fe6f30f5a9af"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43b69953-fb5f-4099-bebf-ef5c69c48524"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""605d3fa1-0c54-425b-a926-0f0948d21e63"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ada6cc2-118f-4da3-8469-5fd30e52416e"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84274221-be05-4665-ad27-4df4f9134614"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventorySlot5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,7 +347,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
-        m_Player_ChangeItemInHand = m_Player.FindAction("ChangeItemInHand", throwIfNotFound: true);
+        m_Player_ChangeItemInHandScroll = m_Player.FindAction("ChangeItemInHandScroll", throwIfNotFound: true);
+        m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
+        m_Player_InventorySlot1 = m_Player.FindAction("InventorySlot1", throwIfNotFound: true);
+        m_Player_InventorySlot2 = m_Player.FindAction("InventorySlot2", throwIfNotFound: true);
+        m_Player_InventorySlot3 = m_Player.FindAction("InventorySlot3", throwIfNotFound: true);
+        m_Player_InventorySlot4 = m_Player.FindAction("InventorySlot4", throwIfNotFound: true);
+        m_Player_InventorySlot5 = m_Player.FindAction("InventorySlot5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,7 +420,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_Camera;
-    private readonly InputAction m_Player_ChangeItemInHand;
+    private readonly InputAction m_Player_ChangeItemInHandScroll;
+    private readonly InputAction m_Player_Drop;
+    private readonly InputAction m_Player_InventorySlot1;
+    private readonly InputAction m_Player_InventorySlot2;
+    private readonly InputAction m_Player_InventorySlot3;
+    private readonly InputAction m_Player_InventorySlot4;
+    private readonly InputAction m_Player_InventorySlot5;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -304,7 +436,13 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
-        public InputAction @ChangeItemInHand => m_Wrapper.m_Player_ChangeItemInHand;
+        public InputAction @ChangeItemInHandScroll => m_Wrapper.m_Player_ChangeItemInHandScroll;
+        public InputAction @Drop => m_Wrapper.m_Player_Drop;
+        public InputAction @InventorySlot1 => m_Wrapper.m_Player_InventorySlot1;
+        public InputAction @InventorySlot2 => m_Wrapper.m_Player_InventorySlot2;
+        public InputAction @InventorySlot3 => m_Wrapper.m_Player_InventorySlot3;
+        public InputAction @InventorySlot4 => m_Wrapper.m_Player_InventorySlot4;
+        public InputAction @InventorySlot5 => m_Wrapper.m_Player_InventorySlot5;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -329,9 +467,27 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
-            @ChangeItemInHand.started += instance.OnChangeItemInHand;
-            @ChangeItemInHand.performed += instance.OnChangeItemInHand;
-            @ChangeItemInHand.canceled += instance.OnChangeItemInHand;
+            @ChangeItemInHandScroll.started += instance.OnChangeItemInHandScroll;
+            @ChangeItemInHandScroll.performed += instance.OnChangeItemInHandScroll;
+            @ChangeItemInHandScroll.canceled += instance.OnChangeItemInHandScroll;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
+            @InventorySlot1.started += instance.OnInventorySlot1;
+            @InventorySlot1.performed += instance.OnInventorySlot1;
+            @InventorySlot1.canceled += instance.OnInventorySlot1;
+            @InventorySlot2.started += instance.OnInventorySlot2;
+            @InventorySlot2.performed += instance.OnInventorySlot2;
+            @InventorySlot2.canceled += instance.OnInventorySlot2;
+            @InventorySlot3.started += instance.OnInventorySlot3;
+            @InventorySlot3.performed += instance.OnInventorySlot3;
+            @InventorySlot3.canceled += instance.OnInventorySlot3;
+            @InventorySlot4.started += instance.OnInventorySlot4;
+            @InventorySlot4.performed += instance.OnInventorySlot4;
+            @InventorySlot4.canceled += instance.OnInventorySlot4;
+            @InventorySlot5.started += instance.OnInventorySlot5;
+            @InventorySlot5.performed += instance.OnInventorySlot5;
+            @InventorySlot5.canceled += instance.OnInventorySlot5;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -351,9 +507,27 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
-            @ChangeItemInHand.started -= instance.OnChangeItemInHand;
-            @ChangeItemInHand.performed -= instance.OnChangeItemInHand;
-            @ChangeItemInHand.canceled -= instance.OnChangeItemInHand;
+            @ChangeItemInHandScroll.started -= instance.OnChangeItemInHandScroll;
+            @ChangeItemInHandScroll.performed -= instance.OnChangeItemInHandScroll;
+            @ChangeItemInHandScroll.canceled -= instance.OnChangeItemInHandScroll;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
+            @InventorySlot1.started -= instance.OnInventorySlot1;
+            @InventorySlot1.performed -= instance.OnInventorySlot1;
+            @InventorySlot1.canceled -= instance.OnInventorySlot1;
+            @InventorySlot2.started -= instance.OnInventorySlot2;
+            @InventorySlot2.performed -= instance.OnInventorySlot2;
+            @InventorySlot2.canceled -= instance.OnInventorySlot2;
+            @InventorySlot3.started -= instance.OnInventorySlot3;
+            @InventorySlot3.performed -= instance.OnInventorySlot3;
+            @InventorySlot3.canceled -= instance.OnInventorySlot3;
+            @InventorySlot4.started -= instance.OnInventorySlot4;
+            @InventorySlot4.performed -= instance.OnInventorySlot4;
+            @InventorySlot4.canceled -= instance.OnInventorySlot4;
+            @InventorySlot5.started -= instance.OnInventorySlot5;
+            @InventorySlot5.performed -= instance.OnInventorySlot5;
+            @InventorySlot5.canceled -= instance.OnInventorySlot5;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -378,6 +552,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
-        void OnChangeItemInHand(InputAction.CallbackContext context);
+        void OnChangeItemInHandScroll(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
+        void OnInventorySlot1(InputAction.CallbackContext context);
+        void OnInventorySlot2(InputAction.CallbackContext context);
+        void OnInventorySlot3(InputAction.CallbackContext context);
+        void OnInventorySlot4(InputAction.CallbackContext context);
+        void OnInventorySlot5(InputAction.CallbackContext context);
     }
 }

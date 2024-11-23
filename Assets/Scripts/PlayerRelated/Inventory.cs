@@ -10,7 +10,10 @@ public class Inventory : MonoBehaviour
     static public Inventory instance;
 
 
+
     [SerializeField] InputActionReference scrollMouse;
+    [SerializeField] InputActionReference drop;
+    [SerializeField] List<InputActionReference> keysChangeItem;
 
 
     List<ItemUsable> items = new();
@@ -27,16 +30,35 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         mainCameraTransform = Camera.main.transform;
+        size = keysChangeItem.Count;
     }
 
     private void OnEnable()
     {
         scrollMouse.action.Enable();
+        drop.action.Enable();
+        drop.action.performed += DropItem;
+
+        for(int i = 0; i < keysChangeItem.Count; i++)
+        {
+            int index = i;
+            keysChangeItem[i].action.Enable();
+            keysChangeItem[i].action.performed += (context) => SetItemInHand(index);
+        }
     }
 
     private void OnDisable()
     {
         scrollMouse.action.Disable();
+        drop.action.Disable();
+        drop.action.performed -= DropItem;
+
+        for (int i = 0; i < keysChangeItem.Count; i++)
+        {
+            int index = i;
+            keysChangeItem[i].action.Disable();
+            keysChangeItem[i].action.performed -= (context) => SetItemInHand(index);
+        }
     }
 
     void Update()
@@ -44,7 +66,6 @@ public class Inventory : MonoBehaviour
 
 
         float scrollValue = scrollMouse.action.ReadValue<float>() / 120;
-        Debug.Log(scrollValue);
 
         if (scrollValue != 0)
         {
@@ -59,7 +80,7 @@ public class Inventory : MonoBehaviour
                 index = 0;
             }
 
-            SetItemInHand(index);
+            SetItemInHand(index, true);
         }
     }
 
@@ -113,9 +134,19 @@ public class Inventory : MonoBehaviour
 
 
 
-    private void SetItemInHand(GameObject _object)
+    private void SetItemInHand(GameObject _object, bool dropped = false)
     {
-        if(itemInHand != null)
+        if(_object == null)
+        {
+            if (itemInHand != null && !dropped)
+                itemInHand.gameObject.SetActive(false);
+
+            itemInHand = null;
+            canvaPlayerUI.UpdateSelectedItem(-1);
+            return;
+        }
+
+        if (itemInHand != null)
             itemInHand.gameObject.SetActive(false);
 
         itemInHand = _object.GetComponent<ItemUsable>();
@@ -123,18 +154,29 @@ public class Inventory : MonoBehaviour
 
         canvaPlayerUI.UpdateSelectedItem(items.IndexOf(itemInHand));
     }
-    private void SetItemInHand(int index)
+    private void SetItemInHand(int index, bool scrolled = false)
     {
         if(index < 0 || index >= items.Count)
         {
             return;
         }
 
-        if(itemInHand != null)
-            itemInHand.gameObject.SetActive(false);
+        int indexOld = items.IndexOf(itemInHand);
+        if (itemInHand != null)
+        {
+            if(scrolled && items.Count != 1 || !scrolled)
+            {
+                itemInHand.gameObject.SetActive(false);
+                itemInHand = null;
+            }
+        }
 
-        itemInHand = items[index];
-        itemInHand.gameObject.SetActive(true);
+
+        if (index != indexOld || scrolled)
+        {
+            itemInHand = items[index];
+            itemInHand.gameObject.SetActive(true);
+        }
 
         canvaPlayerUI.UpdateSelectedItem(items.IndexOf(itemInHand));
     }
@@ -142,9 +184,32 @@ public class Inventory : MonoBehaviour
 
 
 
+    private void DropItem(InputAction.CallbackContext context)
+    {
+        if(itemInHand != null)
+        {
+            itemInHand.transform.SetParent(null);
+            itemInHand.transform.GetComponentInChildren<MeshCollider>().enabled = true;
+            itemInHand.GetComponent<Rigidbody>().isKinematic = false;
+
+            itemInHand.transform.GetComponentInChildren<ItemToPickup>().enabled = true;
+            itemInHand.enabled = false;
+
+
+            items.Remove(itemInHand);
+            canvaPlayerUI.UpdateSquares();
+            SetItemInHand(null, true);
+        }
+    }
+
+
 
     public List<ItemUsable> GetInventory()
     {
         return items;
+    }
+    public ItemUsable GetItemInHand()
+    {
+        return itemInHand;
     }
 }

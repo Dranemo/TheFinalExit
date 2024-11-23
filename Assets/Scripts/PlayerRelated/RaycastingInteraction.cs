@@ -29,6 +29,14 @@ public class RaycastingInteraction : MonoBehaviour
                 interactable.SetIsOutlined(true);
                 lastHitInteractable = interactable;
             }
+            else
+            {
+                if (lastHitInteractable != null)
+                {
+                    lastHitInteractable.SetIsOutlined(false);
+                    lastHitInteractable = null;
+                }
+            }
         }
         else
         {

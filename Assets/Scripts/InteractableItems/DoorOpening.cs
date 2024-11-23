@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Door : Interactable
 {
-    [SerializeField] List<Animator> animators;
+    [SerializeField] protected List<Animator> animators;
 
     private bool isOpen = false;
+    protected bool isAnimatorIdle;
 
 
 
@@ -15,6 +16,21 @@ public class Door : Interactable
     public override void Interact(InputAction.CallbackContext context) 
     {
         if(!isOutlined)
+        {
+            return;
+        }
+
+        isAnimatorIdle = true;
+        foreach (var animator in animators)
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("IdleClosed") && !animator.GetCurrentAnimatorStateInfo(0).IsName("IdleOpened"))
+            {
+                isAnimatorIdle = false;
+                break;
+            }
+        }
+
+        if (!isAnimatorIdle)
         {
             return;
         }

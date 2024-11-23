@@ -53,4 +53,12 @@ public class RechargableItem : ItemUsable
             charge = 100;
         }
     }
+    public float GetCharge()
+    {
+        return charge;
+    }
+    public bool GetIsOn()
+    {
+        return isOn;
+    }
 }

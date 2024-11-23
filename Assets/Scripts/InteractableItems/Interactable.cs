@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] Outline outline;
+    [SerializeField] List<Outline> outlines;
     [SerializeField] List<GameObject> buttonDisplay;
 
-    [SerializeField] InputActionReference interact;
+    [SerializeField] protected InputActionReference interact;
 
     protected bool isOutlined = false;
 
@@ -21,7 +21,11 @@ public class Interactable : MonoBehaviour
 
 
         isOutlined = _isOutlined;
-        outline.enabled = _isOutlined;
+
+        foreach (var outline in outlines)
+        {
+            outline.enabled = _isOutlined;
+        }
 
         if (buttonDisplay != null)
         {
@@ -38,8 +42,10 @@ public class Interactable : MonoBehaviour
         interact.action.Enable();
         interact.action.performed += Interact;
 
-
-        outline.enabled = false;
+        foreach (var outline in outlines)
+        {
+            outline.enabled = false;
+        }
 
         if (buttonDisplay != null)
         {
@@ -54,8 +60,10 @@ public class Interactable : MonoBehaviour
     {
         interact.action.performed -= Interact;
 
-
-        outline.enabled = false;
+        foreach (var outline in outlines)
+        {
+            outline.enabled = false;
+        }
 
         if (buttonDisplay != null)
         {
