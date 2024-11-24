@@ -109,6 +109,7 @@ public class HidingPlace : Interactable
 
             isHidden = false;
             PlayerStats.Instance().SetPlayerHidden(false);
+
             PlayerSingleton.GetPlayer().SetActive(true);
 
             ItemUsable itemInHand = Inventory.Instance().GetItemInHand();
