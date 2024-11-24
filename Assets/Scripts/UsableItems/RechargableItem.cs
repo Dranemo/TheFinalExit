@@ -16,6 +16,8 @@ public class RechargableItem : ItemUsable
 
     public override void Use(InputAction.CallbackContext context)
     {
+        base.Use(context);
+
         isOn = !isOn;
         if (charge <= 0)
         {

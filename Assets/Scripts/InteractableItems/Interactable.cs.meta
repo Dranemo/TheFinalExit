@@ -3,7 +3,10 @@ guid: f6fcc87c4c42ddd4cbfa21290453f1bb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - buttonKeyboard: {fileID: 21300000, guid: da90416636c599e4381f5e2c39193858, type: 3}
+  - buttonController: {fileID: 21300000, guid: b6d93363c2a044d42bd4d7f35ec72b70, type: 3}
+  - interact: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

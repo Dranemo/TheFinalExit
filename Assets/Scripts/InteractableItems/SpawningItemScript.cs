@@ -17,7 +17,7 @@ public class SpawningItemScript : MonoBehaviour
     }
     public void HasMadeSound()
     {
-        hasMadeSoundWhenOpened = false;
+        hasMadeSoundWhenOpened = true;
     }
 
 
@@ -36,17 +36,17 @@ public class SpawningItemScript : MonoBehaviour
 
     public void SpawnItem(GameObject spawnpoint, bool isOutside = false)
     {
-        int random = UnityEngine.Random.Range(0, 4);
+        int random = UnityEngine.Random.Range(0, 3);
 
-        // Il y a un item si random = 0                                         25%
+        // Il y a un item si random = 0                                         33%
         if(random == 0)
         {
             hasMadeSoundWhenOpened = false;
 
-            random = UnityEngine.Random.Range(0, 5);
+            random = UnityEngine.Random.Range(0, 6);
 
             // Il y a des coins si random < 3                                   40%
-            if (random < 2)
+            if (random < 3)
             {
                 random = UnityEngine.Random.Range(0, 10);
 
@@ -67,9 +67,11 @@ public class SpawningItemScript : MonoBehaviour
                 }
             }
             // Il y a des consummables si random < 4                            40%
-            else if (random < 4)
+            else if (random < 5)
             {
                 random = UnityEngine.Random.Range(0, Enum.GetValues(typeof(ItemSpawner.ConsumableItemType)).Length);
+
+                ItemSpawner.SpawnObject(Enum.GetValues(typeof(ItemSpawner.ConsumableItemType)).GetValue(random).ToString(), spawnpoint.transform.position, Quaternion.Euler(new Vector3(Quaternion.identity.x, UnityEngine.Random.Range(0, 180), Quaternion.identity.z)), this.gameObject);
             }
             // Il y a des usables si random < 5                                 20%
             else
@@ -89,6 +91,10 @@ public class SpawningItemScript : MonoBehaviour
             if(random == 0)
             {
                 random = UnityEngine.Random.Range(0, Enum.GetValues(typeof(ItemSpawner.DecorationItemType)).Length);
+
+                ItemSpawner.SpawnObject(Enum.GetValues(typeof(ItemSpawner.DecorationItemType)).GetValue(random).ToString(), spawnpoint.transform.position, Quaternion.Euler(new Vector3(Quaternion.identity.x, UnityEngine.Random.Range(0, 180), Quaternion.identity.z)), this.gameObject);
+
+
             }
         }
     }

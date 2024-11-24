@@ -422,10 +422,15 @@ MonoBehaviour:
   buttonDisplay:
   - {fileID: 8483342569224832770}
   - {fileID: 1048147558063407600}
+  buttonKeyboard: {fileID: 21300000, guid: da90416636c599e4381f5e2c39193858, type: 3}
+  buttonController: {fileID: 21300000, guid: b6d93363c2a044d42bd4d7f35ec72b70, type: 3}
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
   animators:
   - {fileID: 3615992063287353862}
+  doorOpeningSound: {fileID: 8300000, guid: 221e07ead55ab414f984743be658fae8, type: 3}
+  openingOnAnItemSound: {fileID: 0}
+  spawningItemScript: {fileID: 0}
   colliders:
   - {fileID: 612239822856318833}
 --- !u!114 &392475010063935170

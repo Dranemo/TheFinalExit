@@ -740,6 +740,7 @@ MonoBehaviour:
   - {fileID: 2140007435524926026}
   - {fileID: 1724799198763088095}
   volumeProfile: {fileID: 11400000, guid: d2917def6e2f12f4bb6f61f5ca74a751, type: 2}
+  ScreamerHiding: {fileID: 8300000, guid: dda8383cd99f27d4294c5c0f59ec25b4, type: 3}
 --- !u!114 &2760207381040355325
 MonoBehaviour:
   m_ObjectHideFlags: 0

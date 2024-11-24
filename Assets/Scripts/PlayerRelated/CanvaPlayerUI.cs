@@ -17,6 +17,8 @@ public class CanvaPlayerUI : MonoBehaviour
     [SerializeField] Slider sliderHealth;
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] Image bloodDamageImage;
+    [SerializeField] Image blackScreen;
+    [SerializeField] Image ScreamerPierre;
 
     List<GameObject> squares = new List<GameObject>();
 
@@ -52,6 +54,20 @@ public class CanvaPlayerUI : MonoBehaviour
         }
         return instance;
     }
+
+
+
+
+
+    public void SetScreenBlack()
+    {
+        blackScreen.enabled = true;
+    }
+    public void ShowScreamer()
+    {
+        ScreamerPierre.enabled = true;
+    }
+
 
 
 

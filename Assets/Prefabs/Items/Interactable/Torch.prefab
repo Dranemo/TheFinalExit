@@ -386,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 5958438921693756439, guid: e0743fbd60d51fa4b9d852bb6697603e,
         type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5958438921693756439, guid: e0743fbd60d51fa4b9d852bb6697603e,
         type: 3}
@@ -531,6 +531,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: 2ad119866b96a664da06c1ed178e66e4, type: 3}
   itemType: 0
 --- !u!1 &3762737882024558418 stripped
 GameObject:

@@ -19,6 +19,8 @@ public class ItemToPickup : Interactable
     {
         if(isOutlined)
         {
+            base.Interact(context);
+
             inv.AddItem(transform.parent.gameObject);
             AudioManager.Instance.PlaySound(takeSound, transform.position);
         }

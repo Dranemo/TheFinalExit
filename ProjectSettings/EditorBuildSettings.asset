@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Elevator.unity
+    guid: e8bbdc3dd388dff40b780139d97685ab
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Etages/Floor1.unity
+    guid: bdb323583e12ea44eb015cb8f2505095
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/MainMenu.unity
+    guid: edfbb51f2f93b134da7044cbe31fa2cb
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Death.unity
+    guid: 813f4e0e28b3b9e46b0e79aa8fc3bca5
   m_configObjects: {}

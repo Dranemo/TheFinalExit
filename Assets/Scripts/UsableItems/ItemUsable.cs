@@ -27,6 +27,14 @@ public class ItemUsable : MonoBehaviour
 
     public virtual void Use(InputAction.CallbackContext context)
     {
-        Debug.Log("Using " + name);
+        OnActionPerformed(context);
     }
+
+    private void OnActionPerformed(InputAction.CallbackContext context)
+    {
+        PlayerStats.SetDevice(context.control.device);
+    }
+
+
+
 }

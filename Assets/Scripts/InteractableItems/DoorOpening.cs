@@ -20,11 +20,13 @@ public class Door : Interactable
 
     public override void Interact(InputAction.CallbackContext context) 
     {
-        if(!isOutlined)
+
+        if (!isOutlined)
         {
             return;
         }
 
+        base.Interact(context);
         isAnimatorIdle = true;
         foreach (var animator in animators)
         {
@@ -57,6 +59,12 @@ public class Door : Interactable
 
         foreach (var animator in animators)
         {
+            Door door = animator.GetComponent<Door>();
+            if(door != this) 
+            {
+                door.isOpen = isOpen;
+            }
+
             animator.SetBool("IsOpen", isOpen);
             animator.SetTrigger("Interacts");
         }

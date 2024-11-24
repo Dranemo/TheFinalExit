@@ -168,6 +168,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 30
 --- !u!64 &6863929431818547166
 MeshCollider:
@@ -319,6 +320,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 30
 --- !u!64 &2484787511367204061
 MeshCollider:
@@ -476,6 +478,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 30
 --- !u!64 &6441903429914882629
 MeshCollider:

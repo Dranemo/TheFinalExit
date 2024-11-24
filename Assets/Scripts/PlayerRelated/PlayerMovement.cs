@@ -30,13 +30,17 @@ public class PlayerMovement : MonoBehaviour
         movement.action.Enable();
         crouch.action.Enable();
         crouch.action.performed += Crouch;
+
+        movement.action.performed += OnActionPerformed;
     }
 
     private void OnDisable()
     {
         movement.action.Disable();
         crouch.action.Enable();
-        crouch.action.performed += Crouch;
+        crouch.action.performed -= Crouch;
+
+        movement.action.performed -= OnActionPerformed;
     }
 
 
@@ -55,7 +59,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Crouch(InputAction.CallbackContext context)
     {
+        OnActionPerformed(context);
+
         crouching = !crouching;
         crouchCam.SetActive(crouching);
+    }
+
+
+
+
+    private void OnActionPerformed(InputAction.CallbackContext context)
+    {
+        PlayerStats.SetDevice(context.control.device);
     }
 }

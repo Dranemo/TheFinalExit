@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private GameObject audioSourcePrefab;
 
     private Queue<AudioSource> audioSources;
+
+    [SerializeField] private AudioClip heartBeatSound;
+    AudioSource heartBeatSource = null;
 
     private void Awake()
     {
@@ -53,5 +57,32 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         audioSources.Enqueue(audioSource);
+    }
+    private void ReturnToPool(AudioSource audioSource)
+    {
+        audioSources.Enqueue(audioSource);
+    }
+
+    public void SetHeartBeatSound(bool _bool, Vector3 position)
+    {
+        if (heartBeatSource == null && !_bool)
+            return;
+
+        if (_bool)
+        {
+            if (audioSources.Count > 0)
+            {
+                heartBeatSource = audioSources.Dequeue();
+                heartBeatSource.transform.position = position;
+                heartBeatSource.clip = heartBeatSound;
+                heartBeatSource.Play();
+            }
+        }
+        else
+        {
+            heartBeatSource.Stop();
+            ReturnToPool(heartBeatSource);
+            heartBeatSource = null;
+        }
     }
 }

@@ -192,6 +192,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!4 &1133457919699331446 stripped
 Transform:
@@ -359,6 +360,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!1001 &2861449793224707958
 PrefabInstance:
@@ -520,6 +522,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!1001 &3535517130164959603
 PrefabInstance:
@@ -681,6 +684,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!1001 &4278401444641474402
 PrefabInstance:
@@ -836,6 +840,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!4 &4383504436163698825 stripped
 Transform:
@@ -997,6 +1002,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100
 --- !u!4 &5293247140511960345 stripped
 Transform:
@@ -1164,4 +1170,5 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 100

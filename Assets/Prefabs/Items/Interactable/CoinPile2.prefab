@@ -194,6 +194,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 50
 --- !u!1001 &1142648069114501549
 PrefabInstance:
@@ -347,6 +348,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 50
 --- !u!4 &599323035428093510 stripped
 Transform:
@@ -512,6 +514,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 50
 --- !u!1001 &2931451519911815703
 PrefabInstance:
@@ -665,6 +668,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 50
 --- !u!4 &3396878352703950332 stripped
 Transform:
@@ -824,6 +828,7 @@ MonoBehaviour:
   buttonDisplay: []
   interact: {fileID: -1370414636409668776, guid: 397d0577444bec44ba7a92e72d9392d9,
     type: 3}
+  takeSound: {fileID: 8300000, guid: ad5735ff28cc95d4b8b2409e6b08afe3, type: 3}
   Value: 50
 --- !u!4 &4606202211362072857 stripped
 Transform:

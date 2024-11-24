@@ -18,6 +18,7 @@ public class ItemSpawner : MonoBehaviour
 
     public enum ConsumableItemType
     {
+        Soup,
     };
 
     public enum UsableItemType
@@ -27,6 +28,9 @@ public class ItemSpawner : MonoBehaviour
 
     public enum DecorationItemType
     {
+        plantSmall1,
+        plantSmall2,
+        plantSmall3,
     };
 
 

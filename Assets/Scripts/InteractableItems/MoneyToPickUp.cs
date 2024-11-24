@@ -21,6 +21,7 @@ public class MoneyToPickUp : Interactable
         {
             return;
         }
+        base.Interact(context);
 
         playerStats.AddMoney(Value);
         AudioManager.Instance.PlaySound(takeSound, transform.position);

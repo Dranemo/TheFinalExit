@@ -81,6 +81,13 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact(InputAction.CallbackContext context)
     {
+        OnActionPerformed(context);
+
         Debug.Log("Oh, tu as assigné le script Interactable au lieu de la précision de l'objet, t'abuses");
+    }
+
+    private void OnActionPerformed(InputAction.CallbackContext context)
+    {
+        PlayerStats.SetDevice(context.control.device);
     }
 }

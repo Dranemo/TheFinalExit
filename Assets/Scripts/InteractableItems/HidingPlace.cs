@@ -10,9 +10,13 @@ public class HidingPlace : Interactable
 {
     [SerializeField] List<GameObject> virtualCams;
     [SerializeField] VolumeProfile volumeProfile;
+    [SerializeField] AudioClip ScreamerHiding;
+
     private Vignette vignette;
 
     GameObject closestVirtualCam;
+
+
 
     Coroutine intensityCoroutine;
     bool coroutineRunningUp = false;
@@ -43,6 +47,8 @@ public class HidingPlace : Interactable
 
         intensityCoroutine = null;
 
+        vignette.intensity.value = 0.3f;
+
     }
 
     private void Update()
@@ -63,8 +69,10 @@ public class HidingPlace : Interactable
     {
         if(isOutlined && !isHidden)
         {
+            base.Interact(context);
             isHidden = true;
             player.SetActive(false);
+            Camera.main.GetComponent<RaycastingInteraction>().enabled = false;
 
             ItemUsable itemInHand = Inventory.Instance().GetItemInHand();
             if (itemInHand != null)
@@ -81,10 +89,15 @@ public class HidingPlace : Interactable
             }
 
             closestVirtualCam.SetActive(!closestVirtualCam.activeSelf);
+            AudioManager.Instance.SetHeartBeatSound(true, Camera.main.transform.position);
+
             Debug.Log("Interacting with hiding place");
         }
         else if(isHidden && !coroutineRunningDown)
         {
+            base.Interact(context);
+            AudioManager.Instance.SetHeartBeatSound(false, Vector3.zero);
+
             coroutineRunningDown = true;
             coroutineRunningUp = false;
 
@@ -100,6 +113,7 @@ public class HidingPlace : Interactable
                 itemInHand.gameObject.SetActive(true);
 
             closestVirtualCam.SetActive(!closestVirtualCam.activeSelf);
+            Camera.main.GetComponent<RaycastingInteraction>().enabled = true;
             Debug.Log("Interacting with hiding place");
         }
     }
@@ -115,6 +129,14 @@ public class HidingPlace : Interactable
             vignette.intensity.value = Mathf.Lerp(start, end, t / duration);
 
             yield return null;
+        }
+
+        if(start < end)
+        {
+            CanvaPlayerUI.Instance().SetScreenBlack();
+            AudioManager.Instance.SetHeartBeatSound(false, Vector3.zero);
+            AudioManager.Instance.PlaySound(ScreamerHiding, Camera.main.transform.position);
+            PlayerStats.Instance().TakeDamage(100);
         }
 
         intensityCoroutine = null;
