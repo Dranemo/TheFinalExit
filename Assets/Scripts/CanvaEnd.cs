@@ -25,10 +25,13 @@ public class CanvaEnd : MonoBehaviour
 
         if(playerStats.GetFloor() == 10)
         {
-            won= true;
-            TextFloor.text = "Félicitation ! Tu as echappé à l'hotel !";
+            won = true;
+            TextFloor.text = "Félicitation ! Tu as echappé à l'hotel... Enfin... En est tu sûr..?";
         }
-        TextFloor.text = $"Perdu... \nEtage: {playerStats.GetFloor().ToString()}";
+        else
+        {
+            TextFloor.text = $"Perdu... \nEtage: {playerStats.GetFloor().ToString()}";
+        }
 
         TextCoins.text = $"Tu as récolté : {playerStats.GetMoney().ToString()} Pièce !";
 

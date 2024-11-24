@@ -51,7 +51,7 @@ public class LoadSceneManager : MonoBehaviour
     }
 
 
-    IEnumerator UnLoadSceneAsync(string name)
+    public IEnumerator UnLoadSceneAsync(string name, bool isEnd = false)
     {
         if (loadedScene.HasValue && loadedScene.Value.IsValid())
         {
@@ -92,7 +92,8 @@ public class LoadSceneManager : MonoBehaviour
             Debug.Log("La scène n'est pas valide ou n'a pas été chargée.");
         }
 
-        StartCoroutine(LoadSceneAsync(name));
+        if(!isEnd)
+            StartCoroutine(LoadSceneAsync(name));
     }
 
     IEnumerator LoadSceneAsync(string name)

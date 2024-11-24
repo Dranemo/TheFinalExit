@@ -191,7 +191,9 @@ public class PlayerStats : MonoBehaviour
     {
         SaveFile();
 
-        yield return new WaitForSeconds(2);
+        StartCoroutine(LoadSceneManager.Instance.UnLoadSceneAsync("", true));
+
+        yield return new WaitForSeconds(3);
 
 
         Cursor.lockState = CursorLockMode.None;
