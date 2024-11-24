@@ -61,15 +61,13 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
 
         LoadFile();
     }
 
     private void Start()
     {
-        CanvaPlayerUI.Instance().UpdateMoney();
-
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -106,6 +104,7 @@ public class PlayerStats : MonoBehaviour
 
     public void SetPlayerHidden(bool _playerIsHidden)
     {
+        Debug.Log("Player is hidden: " + _playerIsHidden);
         playerIsHidden = _playerIsHidden;
     }
     public bool GetPlayerHidden()

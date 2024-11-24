@@ -16,7 +16,9 @@ public class LoadSceneManager : MonoBehaviour
 
     enum Scenes
     { 
-        Floor1
+        Floor1,
+        Floor2,
+        Floor3,
     }
 
     private void Awake()

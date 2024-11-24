@@ -83,7 +83,7 @@ public class Interactable : MonoBehaviour
     {
         OnActionPerformed(context);
 
-        Debug.Log("Oh, tu as assigné le script Interactable au lieu de la précision de l'objet, t'abuses");
+        //Debug.Log("Oh, tu as assigné le script Interactable au lieu de la précision de l'objet, t'abuses");
     }
 
     private void OnActionPerformed(InputAction.CallbackContext context)

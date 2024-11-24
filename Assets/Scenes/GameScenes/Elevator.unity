@@ -2757,6 +2757,50 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1690989193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690989195}
+  - component: {fileID: 1690989194}
+  m_Layer: 0
+  m_Name: playerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1690989194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690989193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e568af7bfa70dd49963141ee8fb69e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1690989195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690989193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693439489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,7 +3398,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114467520}
-  - component: {fileID: 2114467523}
   - component: {fileID: 2114467522}
   - component: {fileID: 2114467524}
   - component: {fileID: 2114467521}
@@ -3417,18 +3460,6 @@ MonoBehaviour:
   - {fileID: 6956232076015618444, guid: 10ec209641864054598c88adfc4f7cba, type: 3}
   - {fileID: 3039807638904774321, guid: fece29f3137dd6144b67024d5c263c67, type: 3}
   - {fileID: 804066494548389173, guid: fda7df4054e915a42a8078acb6ceee90, type: 3}
---- !u!114 &2114467523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114467519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e568af7bfa70dd49963141ee8fb69e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2114467524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3629,3 +3660,4 @@ SceneRoots:
   - {fileID: 629374652}
   - {fileID: 1197835352}
   - {fileID: 6487800503851160168}
+  - {fileID: 1690989195}

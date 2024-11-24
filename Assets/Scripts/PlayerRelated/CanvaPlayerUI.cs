@@ -80,6 +80,8 @@ public class CanvaPlayerUI : MonoBehaviour
 
         sliderHealth.maxValue = playerStats.GetMaxHealth();
         sliderHealth.value = playerStats.GetHealth();
+
+        UpdateMoney();
     }
 
 

@@ -71,6 +71,8 @@ public class HidingPlace : Interactable
         {
             base.Interact(context);
             isHidden = true;
+            PlayerStats.Instance().SetPlayerHidden(true);
+
             player.SetActive(false);
             Camera.main.GetComponent<RaycastingInteraction>().enabled = false;
 
@@ -106,6 +108,7 @@ public class HidingPlace : Interactable
             intensityCoroutine = StartCoroutine(ChangeVignetteIntensity(vignette.intensity.value, 0.3f, 1f));
 
             isHidden = false;
+            PlayerStats.Instance().SetPlayerHidden(false);
             PlayerSingleton.GetPlayer().SetActive(true);
 
             ItemUsable itemInHand = Inventory.Instance().GetItemInHand();
