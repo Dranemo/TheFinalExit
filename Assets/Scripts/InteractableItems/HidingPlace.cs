@@ -65,7 +65,10 @@ public class HidingPlace : Interactable
         {
             isHidden = true;
             player.SetActive(false);
-            Inventory.Instance().GetItemInHand().gameObject.SetActive(false);
+
+            ItemUsable itemInHand = Inventory.Instance().GetItemInHand();
+            if (itemInHand != null)
+                itemInHand.gameObject.SetActive(false);
 
             float closesDist = Mathf.Infinity;
             foreach (GameObject cam in virtualCams)
@@ -91,7 +94,10 @@ public class HidingPlace : Interactable
 
             isHidden = false;
             PlayerSingleton.GetPlayer().SetActive(true);
-            Inventory.Instance().GetItemInHand().gameObject.SetActive(true);
+
+            ItemUsable itemInHand = Inventory.Instance().GetItemInHand();
+            if (itemInHand != null)
+                itemInHand.gameObject.SetActive(true);
 
             closestVirtualCam.SetActive(!closestVirtualCam.activeSelf);
             Debug.Log("Interacting with hiding place");

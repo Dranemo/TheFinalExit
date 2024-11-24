@@ -7,6 +7,11 @@ public class Door : Interactable
 {
     [SerializeField] protected List<Animator> animators;
 
+    [SerializeField] AudioClip doorOpeningSound;
+
+    [SerializeField] AudioClip openingOnAnItemSound;
+    [SerializeField] SpawningItemScript spawningItemScript;
+
     private bool isOpen = false;
     protected bool isAnimatorIdle;
 
@@ -38,6 +43,17 @@ public class Door : Interactable
 
         Debug.Log("Interacting with door"); 
         isOpen = !isOpen;
+        AudioManager.Instance.PlaySound(doorOpeningSound, transform.position);
+
+        if(spawningItemScript != null)
+        {
+            if(!spawningItemScript.GetHasMadeSoundWhenOpened())
+            {
+                AudioManager.Instance.PlaySound(openingOnAnItemSound, transform.position);
+                spawningItemScript.HasMadeSound();
+            }
+        }
+
 
         foreach (var animator in animators)
         {

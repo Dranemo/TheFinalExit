@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MoneyToPickUp : Interactable
 {
+    [SerializeField] AudioClip takeSound;
+
     [SerializeField] int Value = 0;
     PlayerStats playerStats;
 
@@ -21,6 +23,7 @@ public class MoneyToPickUp : Interactable
         }
 
         playerStats.AddMoney(Value);
+        AudioManager.Instance.PlaySound(takeSound, transform.position);
         Destroy(transform.parent.gameObject);
     }
 }

@@ -6,7 +6,7 @@ using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] CanvaPlayerUI canvaPlayerUI;
+    CanvaPlayerUI canvaPlayerUI;
     static public Inventory instance;
 
 
@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
     {
         mainCameraTransform = Camera.main.transform;
         size = keysChangeItem.Count;
+        canvaPlayerUI = CanvaPlayerUI.Instance();
     }
 
     private void OnEnable()

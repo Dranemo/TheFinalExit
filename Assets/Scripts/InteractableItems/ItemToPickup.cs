@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ItemToPickup : Interactable
 {
+    [SerializeField] AudioClip takeSound;
     Inventory inv;
-    public ItemSpawner.ItemType itemType;
+    public ItemSpawner.UsableItemType itemType;
 
     private void Start()
     {
@@ -17,10 +18,13 @@ public class ItemToPickup : Interactable
     public override void Interact(InputAction.CallbackContext context)
     {
         if(isOutlined)
+        {
             inv.AddItem(transform.parent.gameObject);
+            AudioManager.Instance.PlaySound(takeSound, transform.position);
+        }
     }
 
-    public ItemSpawner.ItemType GetItemType()
+    public ItemSpawner.UsableItemType GetItemType()
     {
         return itemType;
     }
