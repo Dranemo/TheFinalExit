@@ -3169,7 +3169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Yana\xEBl CAILLOT\n\nV0.1 Early Release - 2024"
+  m_text: "Yana\xEBl CAILLOT\n\nV0.1.1 Early Release - 2024"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf05aeec7537a214a9958d7483f55501, type: 2}
   m_sharedMaterial: {fileID: 3801478836427650703, guid: bf05aeec7537a214a9958d7483f55501,
